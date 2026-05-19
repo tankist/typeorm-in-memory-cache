@@ -1,26 +1,67 @@
 {
-  "name": "typeorm-in-memory-cache",
-  "version": "1.0.2",
-  "description": "Provides an in-memory cache for typeorm",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": ["/dist"],
-  "scripts": {
-    "prepublish": "npm run build",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "@tankist/typeorm-in-memory-cache",
+  "version": "2.0.0",
+  "description": "In-memory query result cache for TypeORM",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
+    "test:watch": "NODE_OPTIONS='--experimental-vm-modules' jest --watch",
+    "lint": "eslint src/ __tests__/",
+    "lint:fix": "eslint src/ __tests__/ --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"__tests__/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"__tests__/**/*.ts\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "typeorm",
+    "cache",
+    "in-memory",
+    "query",
+    "result",
+    "cache-provider"
+  ],
   "author": "Frank Fenton",
   "license": "MIT",
-  "devDependencies": {
-    "typeorm": "^0.2.25",
-    "typescript": "^3.9.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tankist/typeorm-in-memory-cache.git"
   },
   "dependencies": {
-    "node-cache": "^5.1.0",
-    "tslib": "^2.0.0"
+    "@cacheable/node-cache": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.15.0",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "jest": "^30.0.0",
+    "prettier": "^3.5.3",
+    "reflect-metadata": "^0.2.2",
+    "ts-jest": "^29.4.0",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.33.0"
   },
   "peerDependencies": {
-    "typeorm": "*"
+    "typeorm": ">=0.3.0"
   }
 }

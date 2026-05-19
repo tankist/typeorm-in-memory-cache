@@ -1,0 +1,10 @@
+src/
+__tests__/
+coverage/
+.github/
+*.tsbuildinfo
+eslint.config.mjs
+.prettierrc
+jest.config.ts
+tsconfig.json
+.node-version
