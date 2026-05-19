@@ -5,6 +5,6 @@ coverage/
 *.tsbuildinfo
 eslint.config.mjs
 .prettierrc
-jest.config.ts
+jest.config.js
 tsconfig.json
 .node-version
