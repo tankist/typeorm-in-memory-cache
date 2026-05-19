@@ -1,5 +1,7 @@
 # @tankist/typeorm-in-memory-cache
 
+[![CI](https://github.com/tankist/typeorm-in-memory-cache/actions/workflows/ci.yml/badge.svg)](https://github.com/tankist/typeorm-in-memory-cache/actions/workflows/ci.yml)
+
 In-memory query result cache for [TypeORM](https://typeorm.io/).
 
 A lightweight wrapper around [@cacheable/node-cache](https://www.npmjs.com/package/@cacheable/node-cache) implementing TypeORM's `QueryResultCache` interface.
