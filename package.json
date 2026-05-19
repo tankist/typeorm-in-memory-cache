@@ -1,6 +1,6 @@
 {
   "name": "@tankist/typeorm-in-memory-cache",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "In-memory query result cache for TypeORM",
   "type": "module",
   "main": "./dist/index.js",
