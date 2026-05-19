@@ -26,7 +26,7 @@ jobs:
 
   publish:
     docker:
-      - image: cimg/node:22
+      - image: cimg/node:24.15
     steps:
       - checkout
       - node/install-packages:
@@ -45,7 +45,7 @@ workflows:
           name: test-node-<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: ['18', '20', '22', '24']
+              node-version: ['18.20', '20.18', '22.22', '24.15']
           filters:
             tags:
               only: /.*/
