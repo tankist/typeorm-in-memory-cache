@@ -1,4 +1,4 @@
-# @tankist/typeorm-in-memory-cache
+# typeorm-in-memory-cache
 
 In-memory query result cache for [TypeORM](https://typeorm.io/).
 
@@ -7,7 +7,7 @@ A lightweight wrapper around [@cacheable/node-cache](https://www.npmjs.com/packa
 ## Installation
 
 ```bash
-npm install @tankist/typeorm-in-memory-cache
+npm install typeorm-in-memory-cache
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @tankist/typeorm-in-memory-cache
 Pass the provider when [configuring TypeORM caching](https://typeorm.io/caching):
 
 ```typescript
-import { InMemoryCacheProvider } from '@tankist/typeorm-in-memory-cache'
+import { InMemoryCacheProvider } from 'typeorm-in-memory-cache'
 
 {
   // ...
@@ -32,7 +32,7 @@ import { InMemoryCacheProvider } from '@tankist/typeorm-in-memory-cache'
 ### Custom cache configuration
 
 ```typescript
-import { InMemoryCacheProvider } from '@tankist/typeorm-in-memory-cache'
+import { InMemoryCacheProvider } from 'typeorm-in-memory-cache'
 import { NodeCache } from '@cacheable/node-cache'
 
 {
