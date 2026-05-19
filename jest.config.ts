@@ -1,10 +1,8 @@
 import type { Config } from 'jest'
 
 const config: Config = {
-  preset: 'ts-jest',
   testEnvironment: 'node',
   roots: ['<rootDir>/__tests__'],
-  extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
@@ -18,10 +16,7 @@ const config: Config = {
     },
   },
   transform: {
-    '^.+\\.ts$': [
-      'ts-jest',
-      { useESM: true },
-    ],
+    '^.+\\.ts$': '@swc/jest',
   },
 }
 

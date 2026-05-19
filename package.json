@@ -23,8 +23,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prepack": "npm run build",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
-    "test:watch": "NODE_OPTIONS='--experimental-vm-modules' jest --watch",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
     "lint": "eslint src/ __tests__/",
     "lint:fix": "eslint src/ __tests__/ --fix",
     "format": "prettier --write \"src/**/*.ts\" \"__tests__/**/*.ts\"",
@@ -49,6 +49,8 @@
     "@cacheable/node-cache": "^3.0.1"
   },
   "devDependencies": {
+    "@swc/core": "^1.15.0",
+    "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.15.0",
     "eslint": "^9.28.0",
@@ -57,7 +59,6 @@
     "jest": "^30.0.0",
     "prettier": "^3.5.3",
     "reflect-metadata": "^0.2.2",
-    "ts-jest": "^29.4.0",
     "typescript": "^6.0.0",
     "typescript-eslint": "^8.33.0"
   },
