@@ -1,6 +1,6 @@
 {
   "name": "@tankist/typeorm-in-memory-cache",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "In-memory query result cache for TypeORM",
   "type": "module",
   "main": "./dist/index.js",
@@ -21,7 +21,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "swc src --out-dir dist --strip-leading-paths && tsc -p tsconfig.build.json",
     "prepack": "npm run build",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
@@ -49,6 +49,7 @@
     "@cacheable/node-cache": "^3.0.1"
   },
   "devDependencies": {
+    "@swc/cli": "^0.8.1",
     "@swc/core": "^1.15.0",
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
