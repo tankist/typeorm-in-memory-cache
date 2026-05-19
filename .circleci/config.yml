@@ -1,0 +1,60 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@7.1.0
+
+jobs:
+  test:
+    parameters:
+      node-version:
+        type: string
+    docker:
+      - image: cimg/node:<< parameters.node-version >>
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Typecheck
+          command: npm run typecheck
+      - run:
+          name: Lint
+          command: npm run lint
+      - run:
+          name: Test
+          command: npm test
+
+  publish:
+    docker:
+      - image: cimg/node:22
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Publish to npm
+          command: npm publish --access public
+
+workflows:
+  ci:
+    jobs:
+      - test:
+          name: test-node-<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: ['18', '20', '22', '24']
+          filters:
+            tags:
+              only: /.*/
+
+  publish:
+    jobs:
+      - publish:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
